@@ -43,6 +43,6 @@ jobs:
         ./unpack unpack geosite -o ./origin_site -f cn -f category-ads-all -f gfw geosite.dat
         ./unpack unpack geoip -o ./origin_ip -f cn -f cloudflare -f netflix geoip.dat
         tree
-        cat ./origin_site/geosite_cn.txt
+        cat ./origin_site/geosite_gfw.txt
         cat ./origin_ip/geoip_cloudflare.txt
 
