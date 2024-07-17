@@ -35,6 +35,7 @@ jobs:
     - name: Test
       run: |
         tree
-        mv ./v2datexec ../unpak
+        cd ./workdir
+        mv ./v2dat/v2datexec ./unpak
         chmod 755 unpak
         ./unpak
