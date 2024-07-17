@@ -1,0 +1,35 @@
+# This workflow will build a golang project
+# For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-go
+
+name: Go
+
+on:
+  workflow_dispatch:
+
+jobs:
+
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+
+    - name: Set up Go
+      uses: actions/setup-go@v4
+      with:
+        go-version: '1.20'
+
+    - name: Initialization environment
+      run: |
+        mkdir /workdir
+        cd /workdir
+        wget https://github.com/Loyalsoldier/v2ray-rules-dat/releases/latest/download/geosite.dat
+        wget https://github.com/Loyalsoldier/v2ray-rules-dat/releases/latest/download/geoip.dat
+        git clone https://github.com/Teapotium/v2dat
+
+    - name: Build
+      run: | 
+        cd /workdir/v2dat
+        go build -v ./...
+
+    - name: Test
+      run: tree
