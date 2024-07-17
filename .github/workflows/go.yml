@@ -23,8 +23,8 @@ jobs:
         pwd
         mkdir ./workdir
         cd ./workdir
-        wget https://github.com/Loyalsoldier/v2ray-rules-dat/releases/latest/download/geosite.dat
-        wget https://github.com/Loyalsoldier/v2ray-rules-dat/releases/latest/download/geoip.dat
+        wget -q https://github.com/Loyalsoldier/v2ray-rules-dat/releases/latest/download/geosite.dat
+        wget -q https://github.com/Loyalsoldier/v2ray-rules-dat/releases/latest/download/geoip.dat
         git clone https://github.com/Teapotium/v2dat
 
     - name: Build
@@ -36,6 +36,10 @@ jobs:
       run: |
         tree
         cd ./workdir
-        mv ./v2dat/v2datexec ./unpak
-        chmod 755 unpak
-        ./unpak
+        mv ./v2dat/v2datexec ./unpack
+        chmod 755 unpack
+        mkdir ./origin_site
+        mkdir ./origin_ip
+        ./unpack unpack geosite -d ./origin_site geosite.dat
+        ./unpack unpack geoip -d ./origin_ip geoip.dat
+        tree
