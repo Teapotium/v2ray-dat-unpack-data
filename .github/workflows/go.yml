@@ -40,6 +40,6 @@ jobs:
         chmod 755 unpack
         mkdir ./origin_site
         mkdir ./origin_ip
-        ./unpack unpack geosite -d ./origin_site geosite.dat
-        ./unpack unpack geoip -d ./origin_ip geoip.dat
+        ./unpack unpack geosite -o ./origin_site geosite.dat
+        ./unpack unpack geoip -o ./origin_ip geoip.dat
         tree
