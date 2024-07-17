@@ -30,7 +30,7 @@ jobs:
     - name: Build
       run: | 
         cd ./workdir/v2dat
-        go build -v ./... -o ${pwd}
+        go build -v ./... -o /home/runner/work/v2ray-dat-unpack-data/v2ray-dat-unpack-data/bin
 
     - name: Test
       run: tree
