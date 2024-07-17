@@ -20,15 +20,15 @@ jobs:
 
     - name: Initialization environment
       run: |
-        mkdir /workdir
-        cd /workdir
+        mkdir ./workdir
+        cd ./workdir
         wget https://github.com/Loyalsoldier/v2ray-rules-dat/releases/latest/download/geosite.dat
         wget https://github.com/Loyalsoldier/v2ray-rules-dat/releases/latest/download/geoip.dat
         git clone https://github.com/Teapotium/v2dat
 
     - name: Build
       run: | 
-        cd /workdir/v2dat
+        cd ./workdir/v2dat
         go build -v ./...
 
     - name: Test
