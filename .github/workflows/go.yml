@@ -20,6 +20,7 @@ jobs:
 
     - name: Initialization environment
       run: |
+        pwd
         mkdir ./workdir
         cd ./workdir
         wget https://github.com/Loyalsoldier/v2ray-rules-dat/releases/latest/download/geosite.dat
@@ -29,7 +30,7 @@ jobs:
     - name: Build
       run: | 
         cd ./workdir/v2dat
-        go build -v ./...
+        go build -v ./... -o ${pwd}
 
     - name: Test
       run: tree
