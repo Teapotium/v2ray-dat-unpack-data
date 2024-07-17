@@ -31,9 +31,10 @@ jobs:
       run: | 
         cd ./workdir/v2dat
         go build -o v2datexec
-        mv ./v2datexec ../v2dat
-        chmod 755 v2dat
-        ./v2dat
 
     - name: Test
-      run: tree
+      run: |
+        tree
+        mv ./v2datexec ../unpak
+        chmod 755 unpak
+        ./unpak
